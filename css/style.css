@@ -1,0 +1,353 @@
+
+/* =================================
+   LES TYPOS DE THALIE
+   Identité visuelle
+================================= */
+
+:root {
+  --background: #f7f4ed;
+  --paper: #fffefa;
+  --ink: #292820;
+  --muted: #777367;
+  --accent: #9b6250;
+  --border: #e7e1d6;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* HEADER */
+
+.site-header {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1250px;
+  margin: auto;
+  padding: 22px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-nav a {
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1250px;
+  margin: auto;
+  padding: 90px 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: normal;
+  line-height: 1.12;
+  margin-bottom: 25px;
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 35px;
+}
+
+.hero-image {
+  min-height: 430px;
+  background: #e9e2d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder {
+  text-align: center;
+  padding: 30px;
+  color: #766c5d;
+}
+
+.image-placeholder span,
+.image-placeholder small {
+  display: block;
+}
+
+.image-placeholder span {
+  font-family: var(--serif);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* BUTTONS */
+
+.button {
+  display: inline-block;
+  padding: 14px 27px;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  background: var(--ink);
+  color: white;
+}
+
+.button-dark:hover {
+  background: var(--accent);
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 90px 35px;
+}
+
+.intro {
+  text-align: center;
+  background: var(--paper);
+}
+
+.intro h2,
+.section-heading h2,
+.contact h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.intro > p:last-child {
+  max-width: 680px;
+  margin: auto;
+  color: var(--muted);
+}
+
+/* CATALOGUE */
+
+.creations {
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.section-heading > p {
+  max-width: 360px;
+  color: var(--muted);
+}
+
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.catalogue-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 55px 20px;
+  color: var(--muted);
+  background: var(--paper);
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  background: #eae3d8;
+}
+
+.contact > p:not(.eyebrow) {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+.site-footer {
+  background: var(--ink);
+  color: #f7f4ed;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.site-footer .logo {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.site-footer p {
+  font-size: 13px;
+  color: #d0c9bc;
+  margin-top: 8px;
+}
+
+.site-footer a:not(.logo) {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* TABLETTES */
+
+@media (max-width: 850px) {
+  .header-inner {
+    flex-direction: column;
+    padding: 18px 20px;
+  }
+
+  .main-nav {
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 65px 25px;
+    gap: 35px;
+  }
+
+  .hero-image {
+    min-height: 330px;
+  }
+
+  .catalogue {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding: 65px 25px;
+  }
+}
+
+/* TELEPHONES */
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 23px;
+  }
+
+  .main-nav {
+    gap: 12px 18px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 55px 22px;
+    gap: 35px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-image {
+    min-height: 280px;
+  }
+
+  .section {
+    padding: 60px 22px;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading > p {
+    margin-top: 15px;
+  }
+
+  .catalogue {
+    grid-template-columns: 1fr;
+  }
+
+  .intro h2,
+  .contact h2 {
+    font-size: 34px;
+  }
+}
