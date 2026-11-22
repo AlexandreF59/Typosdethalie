@@ -24,27 +24,35 @@
     <main class="conteneur">
         <div class="section-titre">
             <h1>Commander ou écrire à l'atelier</h1>
-            <p>Il n'y a pas de paiement en ligne : indiquez-moi la création souhaitée ou votre idée sur mesure, et je vous répondrai rapidement pour organiser l'envoi.</p>
+            <p>Indiquez-moi la création souhaitée ou votre idée sur mesure, et je vous répondrai rapidement pour organiser l'envoi.</p>
         </div>
 
         <div class="formulaire-box">
-            <form action="mailto:thalie@lestyposdethalie.fr" method="post" enctype="text/plain">
+            <form id="form-contact" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="fe5d6413-80a7-41f2-91a2-9b6a8eb87e37">
+                <input type="hidden" name="subject" value="Nouvelle demande sur Les Typos de Thalie">
+                <input type="hidden" name="from_name" value="Boutique Les Typos de Thalie">
+                <input type="checkbox" name="botcheck" style="display: none;">
+
                 <div class="champ-groupe">
                     <label for="nom">Votre nom</label>
                     <input type="text" id="nom" name="Nom" required placeholder="Camille Dupont">
                 </div>
                 <div class="champ-groupe">
                     <label for="email">Votre adresse e-mail</label>
-                    <input type="email" id="email" name="Email" required placeholder="camille@exemple.fr">
+                    <input type="email" id="email" name="email" required placeholder="camille@exemple.fr">
                 </div>
                 <div class="champ-groupe">
                     <label for="message">Votre message ou demande de création</label>
                     <textarea id="message" name="Message" rows="6" required placeholder="Bonjour Thalie, je souhaiterais..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primaire" style="width: 100%;">Envoyer ma demande par e-mail</button>
+
+                <button type="submit" id="btn-envoi" class="btn btn-primaire" style="width: 100%;">Envoyer ma demande</button>
+                <p id="statut-envoi" style="margin-top: 1rem; text-align: center; font-weight: 500;"></p>
             </form>
+
             <p style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--texte-secondaire);">
-                Vous pouvez aussi écrire directement à : <strong>thalie@lestyposdethalie.fr</strong>
+                Vous pouvez aussi écrire directement à : <strong>contact@lestyposdethalie.fr</strong>
             </p>
         </div>
     </main>
