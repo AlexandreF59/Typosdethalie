@@ -7,6 +7,12 @@ DOSSIER_BOUTIQUE = "boutique"
 DOSSIER_DIST = "dist"
 DOMAINE = "https://lestyposdethalie.fr"
 
+SCRIPT_STATS = '<script data-goatcounter="https://lestyposdethalie.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n</body>'
+
+
+def ajouter_stats(html):
+    return html.replace("</body>", SCRIPT_STATS)
+
 
 def lire_infos_txt(chemin_fichier):
     infos = {
@@ -149,13 +155,16 @@ def generer_page_creation(item):
         html = html.replace(cle, val)
 
     with open(os.path.join(DOSSIER_DIST, "creations", f"{item['slug']}.html"), "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(ajouter_stats(html))
 
 
 def generer_pages_principales(catalogue, categories):
     for page in ["a-propos.html", "contact.html"]:
         if os.path.exists(f"templates/{page}"):
-            shutil.copy(f"templates/{page}", os.path.join(DOSSIER_DIST, page))
+            with open(f"templates/{page}", "r", encoding="utf-8") as f:
+                html = f.read()
+            with open(os.path.join(DOSSIER_DIST, page), "w", encoding="utf-8") as f:
+                f.write(ajouter_stats(html))
 
     # Boutons de filtres automatiques selon les catégories présentes dans boutique/
     boutons_html = '<button class="filtre-btn actif" onclick="filtrerCategorie(\'Toutes\', this)">Toutes</button>\n'
@@ -190,7 +199,7 @@ def generer_pages_principales(catalogue, categories):
         html = html.replace("{{GRILLE_CREATIONS}}", cartes_html)
         html = html.replace("{{IMAGE_HERO}}", image_hero)
         with open(os.path.join(DOSSIER_DIST, "index.html"), "w", encoding="utf-8") as f:
-            f.write(html)
+            f.write(ajouter_stats(html))
 
     if os.path.exists("templates/catalogue.html"):
         with open("templates/catalogue.html", "r", encoding="utf-8") as f:
@@ -198,7 +207,7 @@ def generer_pages_principales(catalogue, categories):
         html = html.replace("{{GRILLE_CREATIONS}}", cartes_html)
         html = html.replace("{{BOUTONS_CATEGORIES}}", boutons_html)
         with open(os.path.join(DOSSIER_DIST, "catalogue.html"), "w", encoding="utf-8") as f:
-            f.write(html)
+            f.write(ajouter_stats(html))
 
 
 def generer_sitemap(urls):
