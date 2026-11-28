@@ -19,7 +19,7 @@ def lire_infos_txt(chemin_fichier):
         "dimensions": "Non précisées",
         "description": ""
     }
-    with open(chemin_fichier, "r", encoding="utf-8") as f:
+    with open(chemin_fichier, "r", encoding="utf-8-sig") as f:
         for ligne in f:
             if ":" in ligne:
                 cle, valeur = ligne.split(":", 1)
