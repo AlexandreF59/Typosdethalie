@@ -293,44 +293,196 @@ nav a:hover, nav a.actif {
     text-decoration: underline;
 }
 
-/* Catalogue & Fiches produits existantes */
+/* Conteneurs généraux & Titres de pages */
 .conteneur {
     max-width: 1100px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
 }
 
+.section-titre {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+}
+
+.section-titre p {
+    color: var(--texte-encre);
+    opacity: 0.85;
+    font-size: 1.05rem;
+}
+
+/* Filtres & Grille de la boutique */
+.filtres-barre {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.filtre-btn {
+    background: #ffffff;
+    border: 1px solid rgba(45, 106, 62, 0.3);
+    color: var(--texte-encre);
+    padding: 0.45rem 1.2rem;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filtre-btn:hover,
+.filtre-btn.actif {
+    background-color: var(--vert-foret);
+    color: #ffffff;
+    border-color: var(--vert-foret);
+}
+
 .grille-produits {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
-.carte-produit {
+.carte-creation {
     background: #ffffff;
     border: 1px solid rgba(45, 106, 62, 0.15);
     border-radius: 4px;
     overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s;
+    transition: transform 0.25s;
 }
 
-.carte-produit:hover {
+.carte-creation:hover {
     transform: translateY(-4px);
 }
 
-.carte-produit img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
+.carte-creation a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.carte-info {
+.carte-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.carte-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.badge-dispo {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    background-color: rgba(45, 106, 62, 0.12);
+    color: var(--vert-foret);
+}
+
+.carte-image .badge-dispo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(244, 246, 234, 0.94);
+}
+
+.carte-infos {
     padding: 1.2rem;
 }
 
+.carte-cat {
+    font-size: 0.8rem;
+    color: var(--vert-foret);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.carte-infos h3 {
+    font-size: 1.45rem;
+    margin: 0.3rem 0;
+}
+
+.carte-prix,
+.prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--vert-foret);
+}
+
+/* Fiche produit détaillée */
+.fiche-produit {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+.galerie-produit img.principale {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.miniatures {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.miniatures img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.75;
+    transition: all 0.2s;
+}
+
+.miniatures img:hover,
+.miniatures img.active {
+    border-color: var(--vert-foret);
+    opacity: 1;
+}
+
+.details-produit h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.details-produit .description {
+    margin: 1.5rem 0 2rem;
+    white-space: pre-line;
+}
+
+.lien-retour {
+    display: inline-block;
+    margin-bottom: 1.8rem;
+    color: var(--vert-foret);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.lien-retour:hover {
+    text-decoration: underline;
+}
+
+/* Boutons & Formulaire Contact */
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -351,7 +503,6 @@ nav a:hover, nav a.actif {
     opacity: 0.9;
 }
 
-/* Formulaire Contact */
 .formulaire-box {
     max-width: 600px;
     margin: 0 auto;
@@ -371,7 +522,8 @@ nav a:hover, nav a.actif {
     font-weight: 500;
 }
 
-.champ-groupe input, .champ-groupe textarea {
+.champ-groupe input,
+.champ-groupe textarea {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -386,8 +538,10 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Adaptation mobile */
 @media (max-width: 820px) {
-    .grille-duo {
+    .grille-duo,
+    .fiche-produit {
         grid-template-columns: 1fr;
     }
     .bloc-texte {
